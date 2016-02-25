@@ -29,13 +29,15 @@ var next = function(e){
 	    } 
 	    if ( y >= (canvas.height - 40) || y <= 0 ) {
 		ydir = -ydir;
+		console.log(ydir);
+	    }else{
+		ydir += .1;
 	    }
 	    x += xdir;
 	    y += ydir;
 	    var logo = new Image();
 	    logo.src = "logo_dvd.jpg";
 	    ctx.drawImage(logo,x,y,60,40);
-	    window.setTimeout(next,10);
 	}else{
 	    ctx.fillStyle = "#ffffff";
 	    ctx.fillRect(0,0,500,500);
@@ -51,11 +53,9 @@ var next = function(e){
 	    ctx.fillStyle = "#123456";
 	    ctx.arc(canvas.width/2, canvas.height/2, size, 0, 2*Math.PI);
 	    ctx.fill();
-	    window.setTimeout(next,10);
 	}
-    }else{
-	window.setTimeout(next,10);
     }
+    window.setTimeout(next,10);
 }
 
 next();
