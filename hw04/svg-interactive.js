@@ -5,6 +5,7 @@ var dvd = document.getElementById("DVD");
 var stop = document.getElementById("stop");
 var uppy = document.getElementById('up');
 var downy = document.getElementById('down');
+var grav = document.getElementById('grav');
 
 var change = function(e){
   e.preventDefault();
@@ -20,6 +21,7 @@ var ydir = -1.1;
 var function_type = false;
 var function_on = false;
 var speed = 10;
+var gravity = false;
 
 circle.addEventListener("click",function(e){function_type = false;function_on=true;});
 dvd.addEventListener("click",function(e){function_type=true;function_on=true;});
@@ -34,6 +36,11 @@ downy.addEventListener('click', function(e){
     speed += 1;
   }
 });
+grav.addEventListener('click',function(e){
+  if(function_on && function_type){
+    gravity = !gravity;
+  }
+});
 
 var next = function(e){
     if(function_on){
@@ -45,7 +52,11 @@ var next = function(e){
   	    if ( y >= 470 || y <= 30 ) {
   		      ydir =  -ydir;
   		      console.log(ydir);
-  	    }
+  	    } else{
+          if(gravity){
+            ydir += 0.05;
+          }
+        }
         /*else{
   		      ydir += .1;
   	    }*/
