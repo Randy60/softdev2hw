@@ -1,5 +1,6 @@
 var pic = document.getElementById('savage');
 var c = document.createElementNS("http://www.w3.org/2000/svg","circle");
+//var logo = 
 var circle_botton = document.getElementById("circle");
 var dvd = document.getElementById("DVD");
 var stop = document.getElementById("stop");
@@ -24,7 +25,7 @@ var speed = 10;
 var gravity = false;
 
 circle.addEventListener("click",function(e){function_type = false;function_on=true;});
-dvd.addEventListener("click",function(e){function_type=true;function_on=true;});
+dvd.addEventListener("click",function(e){function_type=true;function_on=true;c.setAttribute("r",30);});
 stop.addEventListener("click", function(e){function_on=false;});
 uppy.addEventListener('click', function(e){
   if(speed > 1){
@@ -74,7 +75,7 @@ var next = function(e){
 	    if(size > 250){
 		      size_dir = -0.4
 	    }
-	    if(size < 5){
+	    if(size < 2){
 		      size_dir = 0.4;
 	    }
 	      size+=size_dir*Math.log(size);
