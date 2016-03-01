@@ -12,7 +12,7 @@ var change = function(e){
 
 }
 
-var size = 0;
+var size = 2;
 var size_dir = 1;
 var x = Math.round((Math.random() * 400) + 31);
 var y = Math.round((Math.random() * 400) + 31);
@@ -72,12 +72,12 @@ var next = function(e){
 	     }else{
 
 	    if(size > 250){
-		      size_dir = -1
+		      size_dir = -0.4
 	    }
-	    if(size < 1){
-		      size_dir = 1;
+	    if(size < 5){
+		      size_dir = 0.4;
 	    }
-	      size+=size_dir;
+	      size+=size_dir*Math.log(size);
 	      console.log(size);
         c.setAttribute("cx",250);
         c.setAttribute("cy",250);
