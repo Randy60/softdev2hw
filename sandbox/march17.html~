@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head><title>March 16</title></head>
+  <style>
+    .chart div{
+    text-align:right;
+    font:10px serif;
+    border: 2px solid;
+    }
+  </style>
+  <body>
+    <div class="chart">
+      <div id="1" style="width:100px">
+	<p id="para">10</p>
+      </div>
+      <div id="2" style="width:140px">
+	<p id="para">14</p>
+      </div>
+      <div id="3" style="width:180px">
+	<p id="para">18</p>
+      </div>
+    </div>
+  </body>
+</html>
