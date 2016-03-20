@@ -25,7 +25,7 @@ d.addEventListener('click', function(e){
      .data(d_count)
    .enter().append("div")
     .style("width", function(d){
-	     return ""+(d*1.5)/1+6+"px";
+	     return ""+(25+(d*1.5)/1)+"px";
      })
      .text(function(d, i){
    	   return d_states[i]+": "+d;
