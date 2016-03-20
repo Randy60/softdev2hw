@@ -11,8 +11,8 @@ r.addEventListener('click', function(e){
     .style("width", function(d){
 	     return ""+d*4+"px";
      })
-     .text(function(d){
-   	   return d;
+     .text(function(d, i){
+   	   return r_states[i]+": "+d;
   }).style("background", function(d) {
   return 'red';
 });
@@ -25,10 +25,10 @@ d.addEventListener('click', function(e){
      .data(d_count)
    .enter().append("div")
     .style("width", function(d){
-	     return ""+(d*1.5)/1+"px";
+	     return ""+(d*1.5)/1+6+"px";
      })
-     .text(function(d){
-   	   return d;
+     .text(function(d, i){
+   	   return d_states[i]+": "+d;
   }).style("background", function(d) {
   return 'blue';
 });
