@@ -1,8 +1,9 @@
-p="myNoobPass1234"
-p2="myNoobPass1234!"
-print [x+" " for x in p]
-
-#[x for x in "1234"]    ->  ?
+p1="pass"
+p2="password"
+p3="Password"
+p4="myNoobPass1234"
+p5="myNoobPass1234!"
+p_list = [p1,p2,p3,p4,p5]
 
 
 UC_LETTERS="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -10,16 +11,13 @@ LC_LETTERS="qwertyuiopasdfghjklzxcvbnm"
 NUMBERS="1234567890"
 SYMBOLS=".?!&#,;:-_*"
 
-print password_strength(p)
-print password_strength(p2)
-
 def password_strength(p):
     strength=0
     U=UC_LETTERS
     L=LC_LETTERS
     N=NUMBERS
     S=SYMBOLS
-    if p.length > 8:
+    if len(p) > 8:
         strength+=1
     for x in p:
         if x in U:
@@ -29,18 +27,20 @@ def password_strength(p):
         if x in L:
             strength+=1
             L=""
-    for x in p
-        if x in N
+    for x in p:
+        if x in N:
             strength+=1
             N=""
-    for x in p
-        if x in S
+    for x in p:
+        if x in S:
             strength+=1
             S=""
     return strength
+def password_boolean(p):
+    return password_strength(p) == 5
 
-
-
+for x in p_list:
+    print " "+x+" "+str(password_strength(x))+" "+str(password_boolean(x))+"\n"
 #[ x for x in p if x in UC_LETTERS ]   ->  ?
 
 #[ 1 for x in p if x in UC_LETTERS ]   ->  ?
@@ -54,7 +54,7 @@ def password_strength(p):
 
 
 #YOUR TASK The Second:
-#Write a function that uses list comprehension to return a password's strength rating. This function should return a low integer for a weak password and a higher integer for a stronger password. (Suggested scale: 1-10) 
+#Write a function that uses list comprehension to return a password's strength rating. This function should return a low integer for a weak password and a higher integer for a stronger password. (Suggested scale: 1-10)
 #Consider these criteria:
 #* mixture of upper- and lower-case
 #* inclusion of numerals
