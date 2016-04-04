@@ -1,3 +1,4 @@
+import math
 p1="pass"
 p2="password"
 p3="Password"
@@ -39,8 +40,22 @@ def password_strength(p):
 def password_boolean(p):
     return password_strength(p) == 5
 
+def p_strength2(p):
+    l= [1 if x in UC_LETTERS else
+        2 if x in LC_LETTERS else
+        3 if x in NUMBERS else
+        4 if x in SYMBOLS else 0
+        for x in p]
+    c1 = len(p) - l.count(1)
+    c2 = len(p) - l.count(2)
+    c3 = len(p) - l.count(3)
+    c4 = len(p) - l.count(4)
+    val = math.sqrt(math.pow(c1,2)+math.pow(c2,2)+math.pow(c3,2)+math.pow(c4,2))
+    return math.pow(len(p),2)/val
+
 for x in p_list:
-    print " "+x+" "+str(password_strength(x))+" "+str(password_boolean(x))+"\n"
+    print " "+x+" "+str(password_strength(x))+"/"+str(p_strength2(x))+' '+str(password_boolean(x))+"\n"
+
 
 #YOUR TASK The First:
 #Write a function that uses list comprehension to return whether a password meets a minimum threshold: it contains a mixture of upper- and lowercase letters, and at least one number.
