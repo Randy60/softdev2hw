@@ -41,13 +41,6 @@ def password_boolean(p):
 
 for x in p_list:
     print " "+x+" "+str(password_strength(x))+" "+str(password_boolean(x))+"\n"
-#[ x for x in p if x in UC_LETTERS ]   ->  ?
-
-#[ 1 for x in p if x in UC_LETTERS ]   ->  ?
-
-#[ 1 if x in UC_LETTERS else 0 for x in p ]  ->  ?
-
-
 
 #YOUR TASK The First:
 #Write a function that uses list comprehension to return whether a password meets a minimum threshold: it contains a mixture of upper- and lowercase letters, and at least one number.
@@ -59,3 +52,19 @@ for x in p_list:
 #* mixture of upper- and lower-case
 #* inclusion of numerals
 #* inclusion of these non-alphanumeric chars: . ? ! & # , ; : - _ *
+
+def repeat(x):
+    def f(y):
+        str = ''
+        while y > 0:
+            str += x
+            y-=1
+        return str
+    return f
+
+r1 = repeat('hello')
+r2 = repeat('goodbye')
+
+print r1(2)
+print r2(2)
+print repeat('cool')(3)
