@@ -1,25 +1,61 @@
+def inc(x):
+    return x+1
+def dec(x):
+    return x-1
+def dub(x):
+    return x*2
+def hav(x):
+    return x/2
+f = inc
+print f(5)
+flist = [inc,dec]
+print flist[1](5)
+
+def makeAdder(n):
+    def inner(x):
+        return x+n
+    return inner
+
+add3 = makeAdder(3)
+add5 = makeAdder(5)
+
+def make_counter():
+    count = [0]
+    def inc():
+        count[0]+=1
+    def dec():
+        count[0]-=1
+    def reset():
+        count[0]=0
+    def get():
+        return count[0]
+    return {'inc':inc, 'dec':dec, 'reset':reset, 'get':get}
+
+c1 = make_counter()
+c2 = make_counter()
+
+c1['inc']()
+c1['inc']()
+c1['inc']()
+print c1['get']()
+
+c2['inc']()
+print c2['get']()
+
+c1['reset']()
+print c1['get']()
+
 import random
-def qs(l):
-    if len(l) <= 0:
-        return l
-    pivot = random.choice(l)
-    return qs([x for x in l if x < pivot])
-    +[x for x in l if x == pivot]
-    +qs([x for x in l if x > pivot])
+def get_name():
+    names = ['Aaron', 'Bart', 'Charlie', 'Dick', 'Eugene', 'Frank','Gary']
+    return random.choice(names)
 
-def check(l):
-    i = 0
-    while i < len(l)-1:
-        if l[i] > l[i+1]:
-            return False
-        i+=1
-    return True
+def dbl(f):
+    name = f()
+    return name+" "+name
 
-l = []
-i = 0
-for i in range(20000):
-    l.append(random.randint(0,100000))
+print dbl(get_name)
 
-print check(l)
-l = qs(l)
-print check(l)
+get_name = dbl(get_name)
+
+print get_name
