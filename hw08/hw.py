@@ -23,3 +23,18 @@ for i in range(20000):
 print check(l)
 l = qs(l)
 print check(l)
+
+def union(a,b):
+    return [x for x in a if x not in b] + b
+
+def set_dif(a,b):
+    return [x for x in a if x not in b]
+
+def sym_dif(a,b):
+    return set_dif(a,b)+set_dif(b,a)
+
+def intersect(a,b):
+    return [x for x in a if x in b]
+
+def cart(a,b):
+    return[(x,y) for x in a for y in b]
