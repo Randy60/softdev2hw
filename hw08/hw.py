@@ -24,6 +24,9 @@ print check(l)
 l = qs(l)
 print check(l)
 
+l1 = [1,2,3,4,5]
+l2 = [1,3,5,7,9]
+
 def union(a,b):
     return [x for x in a if x not in b] + b
 
@@ -38,3 +41,9 @@ def intersect(a,b):
 
 def cart(a,b):
     return[(x,y) for x in a for y in b]
+
+print union(l1,l2)
+print set_dif(l1,l2)
+print sym_dif(l1,l2)
+print intersect(l1,l2)
+print cart(l1,l2)
