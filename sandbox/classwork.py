@@ -1,3 +1,18 @@
+def make_bold(fn):
+    return lambda : "<b>" + fn() + "</b>"
+
+def make_italic(fn):
+    return lambda : "<i>" + fn() + "</i>"
+
+@make_bold
+@make_italic
+def hello():
+    return "hello world"
+
+helloHTML = hello()
+
+print helloHTML
+
 import time
 
 def pt(z):
@@ -23,9 +38,8 @@ def timer( f ):
     def inner( *arg ):
         return f( *arg )
     now = time.time() - now
-    print "-" + now + " " + str(inner)
+    print "-" + str(now)
     return now
 
 closure = timer('pt')
-#closure(6)
-timer(pt)(6)
+closure(int(6))
