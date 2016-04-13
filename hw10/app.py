@@ -4,24 +4,28 @@ import time
 
 app = Flask(__name__)
 
-def debug(f):
-   def meta( *args )
-	now = time.time()
-	temp = f ( *args )
-	now = time.time()-now
-	print f.func_name + "("
-	return temp
-   return meta
+def time(f):
+    def meta( *args ):
+        now = time.time()
+        temp = f( *args )
+        now = time.time()-now
+        print (f.func_name + "("+str(*args)+")\n"
+                +" returned " + str(temp)+"\n"+
+                " and took" + str(now) + " seconds")
+        return temp
+    return meta
 
 
 
 
 @app.route("/")
 @app.route("/home")
+@time
 def home():
    return render_template("home.html")
 
 @app.route("/WhoIsChamp", methods=["GET","POST"])
+@time
 def JC():
     if request.method=="GET":
         return render_template("JohnCena1.html")
@@ -36,9 +40,10 @@ def JC():
             return render_template("JohnCena1.html", error = "that's just not true")
 
 @app.route("/morePicturesOfJohnCena")
+@time
 def JCmany():
     r = random.randint(1,6)
-    
+
     return render_template("JohnCena2.html",pic_id="templates/JC"+str(r)+".jpg")
 
 if __name__ == "__main__":
