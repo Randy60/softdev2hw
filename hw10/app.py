@@ -4,7 +4,7 @@ import time
 
 app = Flask(__name__)
 
-def time(f):
+def timer(f):
     def meta( *args ):
         now = time.time()
         temp = f( *args )
@@ -17,15 +17,14 @@ def time(f):
 
 
 
-
+@timer
 @app.route("/")
 @app.route("/home")
-@time
 def home():
    return render_template("home.html")
 
+@timer
 @app.route("/WhoIsChamp", methods=["GET","POST"])
-@time
 def JC():
     if request.method=="GET":
         return render_template("JohnCena1.html")
@@ -39,8 +38,8 @@ def JC():
         else:
             return render_template("JohnCena1.html", error = "that's just not true")
 
+@timer
 @app.route("/morePicturesOfJohnCena")
-@time
 def JCmany():
     r = random.randint(1,6)
 
