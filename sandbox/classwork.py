@@ -15,12 +15,6 @@ def fib(n):
         return 1
     return fib(n-1)+fib(n-2)
 
-memo = [1,1]
-def fib_memo(n):
-    if len(memo) > n:
-        return memo[n]
-    memo.append(fib_memo(n-1)+fib_memo(n-2))
-    return memo[n]
 
 def memoize(f):
     memo = {}
@@ -32,8 +26,6 @@ def memoize(f):
 fib = memoize(fib)
 
 f = time(fib)
-f2 = time(fib_memo)
 for i in range(0,40):
     f(i)
-    f2(i)
     print "----------------"

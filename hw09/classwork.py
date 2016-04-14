@@ -68,4 +68,4 @@ print str(check(lst))+str(len(lst))
 k=qs(lst)
 print str(check(k))+str(len(k))
 
-#timer(pt)(6)
+timer(pt)(6)
