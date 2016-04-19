@@ -5,7 +5,7 @@ def timer(f):
     def inner( *args ):
         now = time.time()
         temp = f( *args )
-        now = int(time.time()-now)
+        now = time.time()-now
         print (name + "("+str(*args)+")-->" + str(temp)+"\n"+
                 "-->" + str(now) + " seconds")+"\n"+"----------------"
         return temp
@@ -24,9 +24,10 @@ def memoize(f):
         return memo[x]
     return inner
 
+fib = memoize(fib)
+
 f = timer(fib)
 for i in range(1,40):
     f(i)
-fib = memoize(fib)
 #for i in range(1,5):
 #    f(i)
